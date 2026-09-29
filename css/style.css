@@ -144,6 +144,8 @@ section { padding: 72px 0; }
   font-weight: 600;
 }
 
+.header-actions { display: flex; align-items: center; gap: 14px; }
+
 .nav-toggle {
   display: none;
   flex-direction: column;
@@ -370,12 +372,18 @@ section { padding: 72px 0; }
 .testimonial {
   background: var(--color-surface);
   border-radius: var(--radius);
-  padding: 44px;
+  padding: 32px 28px;
   text-align: center;
+}
+.testimonial .stars {
+  color: #f5b942;
+  letter-spacing: 2px;
+  font-size: 1.1rem;
+  margin-bottom: 12px;
 }
 .testimonial .quote {
   font-family: var(--font-heading);
-  font-size: 1.25rem;
+  font-size: 1.05rem;
   color: var(--color-ink);
   margin-bottom: 16px;
 }
