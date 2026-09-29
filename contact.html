@@ -71,7 +71,9 @@
           </div>
         </div>
 
-        <form class="contact-form" action="#" method="post">
+        <form class="contact-form" action="https://formspree.io/f/xeaonlak" method="POST" id="contact-form">
+          <input type="hidden" name="_subject" value="New quote request — Excellent Pool Care website">
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
           <div class="form-row">
             <div>
               <label for="name">Full Name</label>
@@ -103,6 +105,7 @@
             <textarea id="message" name="message" placeholder="Pool size, current condition, and any equipment issues..."></textarea>
           </div>
           <button type="submit" class="btn btn-primary">Request a Free Quote</button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite" hidden></p>
         </form>
       </div>
     </div>
