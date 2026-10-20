@@ -93,13 +93,22 @@
           <div>
             <label for="service">Service Needed</label>
             <select id="service" name="service">
-              <option>Weekly Pool Cleaning</option>
+              <option data-shows-plan>Weekly Pool Cleaning</option>
               <option>Green-to-Clean Recovery</option>
               <option>Filter Cleaning</option>
               <option>Pool Opening / Closing</option>
               <option>Acid &amp; Chlorine Wash</option>
               <option>Pool Draining</option>
               <option>Something Else</option>
+            </select>
+          </div>
+          <div class="plan-field" id="plan-field">
+            <label for="plan">Weekly Plan</label>
+            <select id="plan" name="plan">
+              <option data-plan="essential">Essential Care — up to 10,000 gal ($150/mo)</option>
+              <option data-plan="signature">Signature Care — 10,001 to 20,000 gal ($165/mo)</option>
+              <option data-plan="estate">Estate Care — over 20,000 gal ($180/mo)</option>
+              <option>Not sure yet</option>
             </select>
           </div>
           <div>

@@ -17,6 +17,28 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
+  var serviceSelect = document.getElementById('service');
+  var planField = document.getElementById('plan-field');
+  var planSelect = document.getElementById('plan');
+  function updatePlanField() {
+    if (!serviceSelect || !planField || !planSelect) return;
+    var show = serviceSelect.options[serviceSelect.selectedIndex].hasAttribute('data-shows-plan');
+    planField.hidden = !show;
+    planSelect.disabled = !show;
+  }
+  if (serviceSelect && planSelect) {
+    var planParam = new URLSearchParams(window.location.search).get('plan');
+    var planOption = planParam && planSelect.querySelector('option[data-plan="' + planParam + '"]');
+    if (planOption) {
+      planOption.selected = true;
+      serviceSelect.selectedIndex = Array.prototype.findIndex.call(serviceSelect.options, function (o) {
+        return o.hasAttribute('data-shows-plan');
+      });
+    }
+    serviceSelect.addEventListener('change', updatePlanField);
+    updatePlanField();
+  }
+
   var contactForm = document.getElementById('contact-form');
   var statusEl = document.getElementById('form-status');
   if (contactForm && statusEl) {
@@ -48,6 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
           statusEl.className = 'form-status form-status-success';
           statusEl.textContent = messages.success;
           contactForm.reset();
+          updatePlanField();
         } else {
           statusEl.className = 'form-status form-status-error';
           statusEl.textContent = messages.error;
